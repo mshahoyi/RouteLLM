@@ -324,7 +324,7 @@ class GSM8K(Benchmark):
             strong_win_rates = self.cache[router]
 
         # Choose thresholds split into 10 equally sized bins (including duplicates)
-        _, thresholds = pd.qcut(strong_win_rates, num_results, retbins=True)
+        _, thresholds = pd.qcut(strong_win_rates, num_results, retbins=True, duplicates="drop")
         self.all_data["strong_win_rates"] = strong_win_rates
 
         for i, threshold in enumerate(thresholds):
